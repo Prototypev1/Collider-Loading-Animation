@@ -43,7 +43,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
     : primary = Colors.blue,
       primaryText = const Color(0xff13123A),
       textFieldLabelColor = const Color(0xff7A7A90),
-      background = const Color(0xFFFAFAFA),
+      background = const Color(0xff000000),
       bottomNavigationBorder = const Color(0xFFF4E9FA),
       editProfileBackground = const Color(0xFFEEEEF1),
       inputFieldBorderColor = const Color(0xFFE0E0E6),
@@ -52,7 +52,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
       eventLocationTextColor = const Color(0xFF7A7A90),
       onboardingDescColor = const Color(0xFF414141),
       onboardingSkipColor = const Color(0xFF101010),
-      onboardingIndicatorColor = const Color(0xFF585858),
+      onboardingIndicatorColor = const Color.fromRGBO(88, 88, 88, 1),
       circularBackButtonColor = const Color(0xFFEEEEE1);
 
   final Color? primary;

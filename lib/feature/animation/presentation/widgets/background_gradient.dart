@@ -1,3 +1,4 @@
+import 'package:collider_loading/core/presentation/common/styles/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class BackgroundGradient extends StatelessWidget {
@@ -5,6 +6,15 @@ class BackgroundGradient extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+
+          colors: [CustomColors.of(context).backgroundStartGradient, CustomColors.of(context).backgroundEndGradient],
+        ),
+      ),
+    );
   }
 }

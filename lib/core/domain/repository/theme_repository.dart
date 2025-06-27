@@ -12,7 +12,7 @@ class ThemeRepository {
     final textStyleScheme = CustomTextStyleScheme.fromPrimaryTextColor(primaryTextColor: _colorScheme.primaryText!);
     return ThemeData(
       brightness: Brightness.dark,
-      appBarTheme: AppBarTheme(color: _colorScheme.background),
+      appBarTheme: AppBarTheme(color: _colorScheme.backgroundStartGradient),
       // fontFamily: 'Exo2',
       extensions: <ThemeExtension<dynamic>>[_colorScheme, textStyleScheme],
     );

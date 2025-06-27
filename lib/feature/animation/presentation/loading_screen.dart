@@ -22,7 +22,7 @@ class _LoadingScreenState extends State<LoadingScreen> with SingleTickerProvider
     super.initState();
     _loadingScreenCubit = getIt<LoadingScreenCubit>();
 
-    Future.delayed(const Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 700), () {
       setState(() {
         _opacity = 1.0;
       });
@@ -56,7 +56,7 @@ class _LoadingScreenState extends State<LoadingScreen> with SingleTickerProvider
                 child: AnimatedOpacity(
                   opacity: _opacity,
                   duration: const Duration(seconds: 1),
-                  curve: Curves.easeInOut,
+                  curve: Curves.easeIn,
                   child: const CollisionTube(position: CollisionTubePosition.upper),
                 ),
               ),
@@ -67,7 +67,7 @@ class _LoadingScreenState extends State<LoadingScreen> with SingleTickerProvider
                 child: AnimatedOpacity(
                   opacity: _opacity,
                   duration: const Duration(seconds: 1),
-                  curve: Curves.easeInOut,
+                  curve: Curves.easeIn,
                   child: const CollisionTube(position: CollisionTubePosition.lower),
                 ),
               ),

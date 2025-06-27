@@ -24,6 +24,17 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final horizontalMargin = screenWidth / 10;
+
+    const tubeHeight = 52.0; //move to constants afterwards
+    const spacing = 24.0;
+
+    final centerY = screenHeight / 2;
+    final upperTubeTop = centerY - spacing - tubeHeight;
+    final lowerTubeTop = centerY + spacing;
+
     return Scaffold(
       body: BlocConsumer<LoadingScreenCubit, LoadingScreenState>(
         bloc: _loadingScreenCubit,
@@ -32,16 +43,16 @@ class _LoadingScreenState extends State<LoadingScreen> {
             children: [
               Positioned.fill(child: BackgroundGradient()),
               Positioned(
-                top: MediaQuery.of(context).size.height / 3,
-                left: MediaQuery.of(context).size.width / 10,
-                right: MediaQuery.of(context).size.width / 10,
-                child: CollisionTube(position: CollisionTubePosition.upper),
+                top: upperTubeTop,
+                left: horizontalMargin,
+                right: horizontalMargin,
+                child: const CollisionTube(position: CollisionTubePosition.upper),
               ),
               Positioned(
-                top: MediaQuery.of(context).size.height / 2,
-                left: MediaQuery.of(context).size.width / 10,
-                right: MediaQuery.of(context).size.width / 10,
-                child: CollisionTube(position: CollisionTubePosition.lower),
+                top: lowerTubeTop,
+                left: horizontalMargin,
+                right: horizontalMargin,
+                child: const CollisionTube(position: CollisionTubePosition.lower),
               ),
             ],
           );

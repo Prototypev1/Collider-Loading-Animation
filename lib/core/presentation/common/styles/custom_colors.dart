@@ -9,7 +9,7 @@ class CustomColors {
   Color get backgroundEndGradient => Theme.of(_context).extension<CustomColorScheme>()!.backgroundEndGradient!;
   Color get backgroundStartGradient => Theme.of(_context).extension<CustomColorScheme>()!.backgroundStartGradient!;
   Color get editProfileBackground => Theme.of(_context).extension<CustomColorScheme>()!.editProfileBackground!;
-  Color get textFieldLabel => Theme.of(_context).extension<CustomColorScheme>()!.textFieldLabelColor!;
+  Color get tubeOutlineColor => Theme.of(_context).extension<CustomColorScheme>()!.tubeOutlineColor!;
   Color get inputFieldBorder => Theme.of(_context).extension<CustomColorScheme>()!.inputFieldBorderColor!;
   Color get mainGreen => Theme.of(_context).extension<CustomColorScheme>()!.mainGreenColor!;
   Color get inputFieldTextColor => Theme.of(_context).extension<CustomColorScheme>()!.inputFieldTextColor!;
@@ -25,10 +25,10 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
   const CustomColorScheme({
     required this.primary,
     required this.primaryText,
+    required this.tubeOutlineColor,
     required this.backgroundEndGradient,
     required this.backgroundStartGradient,
     required this.editProfileBackground,
-    required this.textFieldLabelColor,
     required this.inputFieldBorderColor,
     required this.mainGreenColor,
     required this.inputFieldTextColor,
@@ -42,7 +42,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
   const CustomColorScheme.classic()
     : primary = Colors.blue,
       primaryText = const Color(0xff13123A),
-      textFieldLabelColor = const Color(0xff7A7A90),
+      tubeOutlineColor = const Color(0xFF0d4015),
       backgroundEndGradient = const Color(0xFF000000),
       backgroundStartGradient = const Color(0xFF403e3e),
       editProfileBackground = const Color(0xFFEEEEF1),
@@ -57,7 +57,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
 
   final Color? primary;
   final Color? primaryText;
-  final Color? textFieldLabelColor;
+  final Color? tubeOutlineColor;
   final Color? backgroundEndGradient;
   final Color? backgroundStartGradient;
   final Color? editProfileBackground;
@@ -77,7 +77,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
     Color? backgroundEndGradient,
     Color? backgroundStartGradient,
     Color? editProfileBackground,
-    Color? textFieldLabelColor,
+    Color? tubeOutlineColor,
     Color? inputFieldBorderColor,
     Color? mainGreenColor,
     Color? inputFieldTextColor,
@@ -93,7 +93,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
       backgroundEndGradient: backgroundEndGradient ?? this.backgroundEndGradient,
       backgroundStartGradient: backgroundStartGradient ?? this.backgroundStartGradient,
       editProfileBackground: editProfileBackground ?? this.editProfileBackground,
-      textFieldLabelColor: textFieldLabelColor ?? this.textFieldLabelColor,
+      tubeOutlineColor: tubeOutlineColor ?? this.tubeOutlineColor,
       inputFieldBorderColor: inputFieldBorderColor ?? this.inputFieldBorderColor,
       mainGreenColor: mainGreenColor ?? this.mainGreenColor,
       inputFieldTextColor: inputFieldTextColor ?? this.inputFieldTextColor,
@@ -114,7 +114,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
       backgroundEndGradient: Color.lerp(backgroundEndGradient, other.backgroundEndGradient, t),
       backgroundStartGradient: Color.lerp(backgroundStartGradient, other.backgroundStartGradient, t),
       editProfileBackground: Color.lerp(editProfileBackground, other.editProfileBackground, t),
-      textFieldLabelColor: Color.lerp(textFieldLabelColor, other.textFieldLabelColor, t),
+      tubeOutlineColor: Color.lerp(tubeOutlineColor, other.tubeOutlineColor, t),
       inputFieldBorderColor: Color.lerp(inputFieldBorderColor, other.inputFieldBorderColor, t),
       mainGreenColor: Color.lerp(mainGreenColor, other.mainGreenColor, t),
       inputFieldTextColor: Color.lerp(inputFieldTextColor, other.inputFieldTextColor, t),

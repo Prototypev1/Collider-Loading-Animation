@@ -2,6 +2,7 @@ import 'package:collider_loading/di/di.dart';
 import 'package:collider_loading/feature/animation/domain/cubit/loading_screen_cubit.dart';
 import 'package:collider_loading/feature/animation/domain/cubit/loading_screen_state.dart';
 import 'package:collider_loading/feature/animation/presentation/widgets/background_gradient.dart';
+import 'package:collider_loading/feature/animation/presentation/widgets/collision_tube.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,7 +28,23 @@ class _LoadingScreenState extends State<LoadingScreen> {
       body: BlocConsumer<LoadingScreenCubit, LoadingScreenState>(
         bloc: _loadingScreenCubit,
         builder: (BuildContext context, state) {
-          return Stack(children: [Positioned.fill(child: BackgroundGradient())]);
+          return Stack(
+            children: [
+              Positioned.fill(child: BackgroundGradient()),
+              Positioned(
+                top: MediaQuery.of(context).size.height / 3,
+                left: MediaQuery.of(context).size.width / 10,
+                right: MediaQuery.of(context).size.width / 10,
+                child: CollisionTube(position: CollisionTubePosition.upper),
+              ),
+              Positioned(
+                top: MediaQuery.of(context).size.height / 2,
+                left: MediaQuery.of(context).size.width / 10,
+                right: MediaQuery.of(context).size.width / 10,
+                child: CollisionTube(position: CollisionTubePosition.lower),
+              ),
+            ],
+          );
         },
         listener: (context, state) {},
       ),

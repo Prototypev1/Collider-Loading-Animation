@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:collider_loading/di/di.dart';
 import 'package:collider_loading/feature/animation/domain/cubit/loading_screen_cubit.dart';
 import 'package:collider_loading/feature/animation/domain/cubit/loading_screen_state.dart';
+import 'package:collider_loading/feature/animation/domain/model/glow_zone_model.dart';
 import 'package:collider_loading/feature/animation/presentation/widgets/background_gradient.dart';
 import 'package:collider_loading/feature/animation/presentation/widgets/collision_tube.dart';
+import 'package:collider_loading/feature/animation/presentation/widgets/particle_layer.dart';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key});
@@ -16,6 +19,10 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreenState extends State<LoadingScreen> with SingleTickerProviderStateMixin {
   late final LoadingScreenCubit _loadingScreenCubit;
   double _opacity = 0.0;
+
+  final List<GlowZone> upperGlowZones = [GlowZone(0.2, 0.6), GlowZone(0.5, 0.9)];
+
+  final List<GlowZone> lowerGlowZones = [GlowZone(0.35, 0.5), GlowZone(0.75, 0.7)];
 
   @override
   void initState() {
@@ -45,10 +52,12 @@ class _LoadingScreenState extends State<LoadingScreen> with SingleTickerProvider
     return Scaffold(
       body: BlocConsumer<LoadingScreenCubit, LoadingScreenState>(
         bloc: _loadingScreenCubit,
+        listener: (context, state) {},
         builder: (context, state) {
           return Stack(
             children: [
               Positioned.fill(child: BackgroundGradient()),
+              const ParticleLayer(),
               Positioned(
                 top: upperTubeTop,
                 left: horizontalMargin,
@@ -57,7 +66,7 @@ class _LoadingScreenState extends State<LoadingScreen> with SingleTickerProvider
                   opacity: _opacity,
                   duration: const Duration(seconds: 1),
                   curve: Curves.easeIn,
-                  child: const CollisionTube(position: CollisionTubePosition.upper),
+                  child: CollisionTube(position: CollisionTubePosition.upper, glowZone: upperGlowZones),
                 ),
               ),
               Positioned(
@@ -68,13 +77,12 @@ class _LoadingScreenState extends State<LoadingScreen> with SingleTickerProvider
                   opacity: _opacity,
                   duration: const Duration(seconds: 1),
                   curve: Curves.easeIn,
-                  child: const CollisionTube(position: CollisionTubePosition.lower),
+                  child: CollisionTube(position: CollisionTubePosition.lower, glowZone: lowerGlowZones),
                 ),
               ),
             ],
           );
         },
-        listener: (context, state) {},
       ),
     );
   }

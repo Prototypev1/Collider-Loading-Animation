@@ -33,7 +33,7 @@ class _ParticleLayerState extends State<ParticleLayer> with SingleTickerProvider
   }
 
   void _onTick(Duration elapsed) {
-    final dt = (elapsed - _elapsed).inMilliseconds / 1000;
+    final dt = (elapsed - _elapsed).inMilliseconds / 200;
     _elapsed = elapsed;
 
     setState(() {

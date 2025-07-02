@@ -1,5 +1,5 @@
-import 'package:collider_loading/core/presentation/common/styles/custom_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:collider_loading/core/presentation/common/styles/custom_colors.dart';
 
 enum CollisionTubePosition { upper, lower }
 
@@ -20,7 +20,6 @@ class CollisionTube extends StatelessWidget {
       width: width,
       height: 52,
       child: Stack(
-        clipBehavior: Clip.none,
         children: [
           Positioned(
             top: position == CollisionTubePosition.upper ? 10 : null,

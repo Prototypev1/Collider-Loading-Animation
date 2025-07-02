@@ -1,5 +1,6 @@
 import 'package:collider_loading/core/domain/repository/theme_repository.dart';
 import 'package:collider_loading/di/di.dart';
+import 'package:collider_loading/feature/animation/presentation/loading_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -12,14 +13,16 @@ class App extends StatelessWidget {
     final theme = getIt<ThemeRepository>().buildTheme();
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-      child: MaterialApp.router(
+      child: MaterialApp(
+        // add.router
         theme: theme,
-        localizationsDelegates: context.localizationDelegates,
+        // localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
-        locale: context.locale,
+        // locale: context.locale,
         //routerConfig: getIt.get<RouterConfiguration>().router,
-        title: 'wont be an app',
+        title: 'Loading Animation',
         debugShowCheckedModeBanner: false,
+        home: LoadingScreen(),
       ),
     );
   }

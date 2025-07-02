@@ -6,8 +6,8 @@ class CustomColors {
 
   Color get primary => Theme.of(_context).extension<CustomColorScheme>()!.primary!;
   Color get primaryText => Theme.of(_context).extension<CustomColorScheme>()!.primaryText!;
-  Color get background => Theme.of(_context).extension<CustomColorScheme>()!.background!;
-  Color get bottomNavigationBorder => Theme.of(_context).extension<CustomColorScheme>()!.bottomNavigationBorder!;
+  Color get backgroundEndGradient => Theme.of(_context).extension<CustomColorScheme>()!.backgroundEndGradient!;
+  Color get backgroundStartGradient => Theme.of(_context).extension<CustomColorScheme>()!.backgroundStartGradient!;
   Color get editProfileBackground => Theme.of(_context).extension<CustomColorScheme>()!.editProfileBackground!;
   Color get textFieldLabel => Theme.of(_context).extension<CustomColorScheme>()!.textFieldLabelColor!;
   Color get inputFieldBorder => Theme.of(_context).extension<CustomColorScheme>()!.inputFieldBorderColor!;
@@ -25,8 +25,8 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
   const CustomColorScheme({
     required this.primary,
     required this.primaryText,
-    required this.background,
-    required this.bottomNavigationBorder,
+    required this.backgroundEndGradient,
+    required this.backgroundStartGradient,
     required this.editProfileBackground,
     required this.textFieldLabelColor,
     required this.inputFieldBorderColor,
@@ -43,8 +43,8 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
     : primary = Colors.blue,
       primaryText = const Color(0xff13123A),
       textFieldLabelColor = const Color(0xff7A7A90),
-      background = const Color(0xff000000),
-      bottomNavigationBorder = const Color(0xFFF4E9FA),
+      backgroundEndGradient = const Color(0xFF000000),
+      backgroundStartGradient = const Color(0xFF403e3e),
       editProfileBackground = const Color(0xFFEEEEF1),
       inputFieldBorderColor = const Color(0xFFE0E0E6),
       mainGreenColor = const Color(0xFF5A8E22),
@@ -58,8 +58,8 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
   final Color? primary;
   final Color? primaryText;
   final Color? textFieldLabelColor;
-  final Color? background;
-  final Color? bottomNavigationBorder;
+  final Color? backgroundEndGradient;
+  final Color? backgroundStartGradient;
   final Color? editProfileBackground;
   final Color? inputFieldBorderColor;
   final Color? mainGreenColor;
@@ -74,8 +74,8 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
   CustomColorScheme copyWith({
     Color? primary,
     Color? primaryText,
-    Color? background,
-    Color? bottomNavigationBorder,
+    Color? backgroundEndGradient,
+    Color? backgroundStartGradient,
     Color? editProfileBackground,
     Color? textFieldLabelColor,
     Color? inputFieldBorderColor,
@@ -90,8 +90,8 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
     return CustomColorScheme(
       primary: primary ?? this.primary,
       primaryText: primaryText ?? this.primaryText,
-      background: background ?? this.background,
-      bottomNavigationBorder: bottomNavigationBorder ?? this.bottomNavigationBorder,
+      backgroundEndGradient: backgroundEndGradient ?? this.backgroundEndGradient,
+      backgroundStartGradient: backgroundStartGradient ?? this.backgroundStartGradient,
       editProfileBackground: editProfileBackground ?? this.editProfileBackground,
       textFieldLabelColor: textFieldLabelColor ?? this.textFieldLabelColor,
       inputFieldBorderColor: inputFieldBorderColor ?? this.inputFieldBorderColor,
@@ -111,8 +111,8 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
     return CustomColorScheme(
       primary: Color.lerp(primary, other.primary, t),
       primaryText: Color.lerp(primaryText, other.primaryText, t),
-      background: Color.lerp(background, other.background, t),
-      bottomNavigationBorder: Color.lerp(bottomNavigationBorder, other.bottomNavigationBorder, t),
+      backgroundEndGradient: Color.lerp(backgroundEndGradient, other.backgroundEndGradient, t),
+      backgroundStartGradient: Color.lerp(backgroundStartGradient, other.backgroundStartGradient, t),
       editProfileBackground: Color.lerp(editProfileBackground, other.editProfileBackground, t),
       textFieldLabelColor: Color.lerp(textFieldLabelColor, other.textFieldLabelColor, t),
       inputFieldBorderColor: Color.lerp(inputFieldBorderColor, other.inputFieldBorderColor, t),

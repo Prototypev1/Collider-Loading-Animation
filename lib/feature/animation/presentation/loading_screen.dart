@@ -23,15 +23,13 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: BlocConsumer<LoadingScreenCubit, LoadingScreenState>(
-          bloc: _loadingScreenCubit,
-          builder: (BuildContext context, state) {
-            return Stack(children: [BackgroundGradient()]);
-          },
-          listener: (context, state) {},
-        ),
+    return Scaffold(
+      body: BlocConsumer<LoadingScreenCubit, LoadingScreenState>(
+        bloc: _loadingScreenCubit,
+        builder: (BuildContext context, state) {
+          return Stack(children: [Positioned.fill(child: BackgroundGradient())]);
+        },
+        listener: (context, state) {},
       ),
     );
   }

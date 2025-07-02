@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:collider_loading/di/di.dart';
 import 'package:collider_loading/feature/animation/domain/cubit/loading_screen_cubit.dart';
 import 'package:collider_loading/feature/animation/domain/cubit/loading_screen_state.dart';
-import 'package:collider_loading/feature/animation/domain/model/glow_zone_model.dart';
 import 'package:collider_loading/feature/animation/presentation/widgets/background_gradient.dart';
 import 'package:collider_loading/feature/animation/presentation/widgets/collision_tube.dart';
 import 'package:collider_loading/feature/animation/presentation/widgets/particle_layer.dart';
@@ -20,9 +19,10 @@ class _LoadingScreenState extends State<LoadingScreen> with SingleTickerProvider
   late final LoadingScreenCubit _loadingScreenCubit;
   double _opacity = 0.0;
 
-  final List<GlowZone> upperGlowZones = [GlowZone(0.2, 0.6), GlowZone(0.5, 0.9)];
-
-  final List<GlowZone> lowerGlowZones = [GlowZone(0.35, 0.5), GlowZone(0.75, 0.7)];
+  bool _collisionTriggered = false;
+  double _flashOpacity = 0.0;
+  double _flashScale = 1.0;
+  double _blackoutOpacity = 0.0;
 
   @override
   void initState() {
@@ -30,9 +30,25 @@ class _LoadingScreenState extends State<LoadingScreen> with SingleTickerProvider
     _loadingScreenCubit = getIt<LoadingScreenCubit>();
 
     Future.delayed(const Duration(milliseconds: 700), () {
-      setState(() {
-        _opacity = 1.0;
-      });
+      setState(() => _opacity = 1.0);
+    });
+  }
+
+  void _triggerCollision() async {
+    setState(() {
+      _collisionTriggered = true;
+      _flashOpacity = 1.0;
+      _flashScale = 1.0;
+    });
+
+    for (int i = 0; i < 15; i++) {
+      await Future.delayed(const Duration(milliseconds: 100));
+      setState(() => _flashScale += 0.2);
+    }
+
+    setState(() {
+      _flashOpacity = 0.0;
+      _blackoutOpacity = 1.0;
     });
   }
 
@@ -52,12 +68,11 @@ class _LoadingScreenState extends State<LoadingScreen> with SingleTickerProvider
     return Scaffold(
       body: BlocConsumer<LoadingScreenCubit, LoadingScreenState>(
         bloc: _loadingScreenCubit,
-        listener: (context, state) {},
-        builder: (context, state) {
+        listener: (_, __) {},
+        builder: (_, __) {
           return Stack(
             children: [
-              Positioned.fill(child: BackgroundGradient()),
-              const ParticleLayer(),
+              const Positioned.fill(child: BackgroundGradient()),
               Positioned(
                 top: upperTubeTop,
                 left: horizontalMargin,
@@ -66,7 +81,7 @@ class _LoadingScreenState extends State<LoadingScreen> with SingleTickerProvider
                   opacity: _opacity,
                   duration: const Duration(seconds: 1),
                   curve: Curves.easeIn,
-                  child: CollisionTube(position: CollisionTubePosition.upper, glowZone: upperGlowZones),
+                  child: const CollisionTube(position: CollisionTubePosition.upper),
                 ),
               ),
               Positioned(
@@ -77,9 +92,26 @@ class _LoadingScreenState extends State<LoadingScreen> with SingleTickerProvider
                   opacity: _opacity,
                   duration: const Duration(seconds: 1),
                   curve: Curves.easeIn,
-                  child: CollisionTube(position: CollisionTubePosition.lower, glowZone: lowerGlowZones),
+                  child: const CollisionTube(position: CollisionTubePosition.lower),
                 ),
               ),
+              ParticleLayer(onCollision: _triggerCollision),
+              if (_collisionTriggered)
+                Positioned.fill(
+                  child: AnimatedOpacity(
+                    opacity: _flashOpacity,
+                    duration: const Duration(milliseconds: 200),
+                    child: Transform.scale(scale: _flashScale, child: Container(color: Colors.white)),
+                  ),
+                ),
+              if (_blackoutOpacity > 0)
+                Positioned.fill(
+                  child: AnimatedOpacity(
+                    opacity: _blackoutOpacity,
+                    duration: const Duration(milliseconds: 1500),
+                    child: Container(color: Colors.black),
+                  ),
+                ),
             ],
           );
         },

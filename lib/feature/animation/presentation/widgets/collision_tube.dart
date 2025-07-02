@@ -1,15 +1,12 @@
-import 'package:collider_loading/feature/animation/presentation/painters/glow_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:collider_loading/core/presentation/common/styles/custom_colors.dart';
-import 'package:collider_loading/feature/animation/domain/model/glow_zone_model.dart';
 
 enum CollisionTubePosition { upper, lower }
 
 class CollisionTube extends StatelessWidget {
   final CollisionTubePosition position;
-  final List<GlowZone> glowZone;
 
-  const CollisionTube({super.key, required this.position, required this.glowZone});
+  const CollisionTube({super.key, required this.position});
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +21,6 @@ class CollisionTube extends StatelessWidget {
       height: 52,
       child: Stack(
         children: [
-          CustomPaint(
-            size: Size(width, 52),
-            painter: GlowPainter(glowZones: glowZone, color: Colors.white.withValues(alpha: .5), position: position),
-          ),
-
           Positioned(
             top: position == CollisionTubePosition.upper ? 10 : null,
             bottom: position == CollisionTubePosition.lower ? 10 : null,
@@ -45,7 +37,6 @@ class CollisionTube extends StatelessWidget {
               ),
             ),
           ),
-
           Positioned.fill(
             child: ShaderMask(
               shaderCallback: (Rect bounds) {
@@ -74,7 +65,6 @@ class CollisionTube extends StatelessWidget {
               ),
             ),
           ),
-
           Align(
             alignment: position == CollisionTubePosition.upper ? Alignment.topCenter : Alignment.bottomCenter,
             child: Container(
@@ -89,7 +79,6 @@ class CollisionTube extends StatelessWidget {
               ),
             ),
           ),
-
           Positioned(
             top: position == CollisionTubePosition.upper ? 5 : null,
             bottom: position == CollisionTubePosition.lower ? 5 : null,

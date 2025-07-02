@@ -16,17 +16,6 @@ class ParticlePainter extends CustomPainter {
             ).createShader(Rect.fromCircle(center: particle.position, radius: particle.radius * 2));
 
       canvas.drawCircle(particle.position, particle.radius * 2, paint);
-
-      final trailPaint =
-          Paint()
-            ..shader = LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [Colors.white.withValues(alpha: .2), Colors.transparent],
-            ).createShader(Rect.fromCircle(center: particle.position, radius: particle.radius * 6));
-
-      final trailOffset = Offset(particle.fromLeft ? -15 : 15, 0);
-      canvas.drawCircle(particle.position.translate(trailOffset.dx, trailOffset.dy), particle.radius * 3, trailPaint);
     }
   }
 

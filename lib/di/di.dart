@@ -1,4 +1,5 @@
 import 'package:collider_loading/core/domain/repository/theme_repository.dart';
+import 'package:collider_loading/core/presentation/navigation/router_configuration.dart';
 import 'package:collider_loading/feature/animation/domain/cubit/loading_screen_cubit.dart';
 import 'package:get_it/get_it.dart';
 
@@ -10,8 +11,9 @@ Future<void> initDI() async {
 }
 
 Future<void> _registerUtils() async {
-  getIt.registerSingleton<ThemeRepository>(ThemeRepository());
-  // ..registerSingleton<RouterConfiguration>(RouterConfiguration(getIt<LocalRepository>()))
+  getIt
+    ..registerSingleton<ThemeRepository>(ThemeRepository())
+    ..registerSingleton<RouterConfiguration>(RouterConfiguration());
 }
 
 void _registerCubits() {

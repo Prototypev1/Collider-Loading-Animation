@@ -33,6 +33,16 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/localization/
+    - assets/fonts/
+  fonts:
+    - family: CourierPrime
+      fonts:
+        - asset: assets/fonts/CourierPrime-Regular.ttf
+        - asset: assets/fonts/CourierPrime-Italic.ttf
+        - asset: assets/fonts/CourierPrime-BoldItalic.ttf
+        - asset: assets/fonts/CourierPrime-Bold.ttf
 
   # assets:
   #   - images/a_dot_burr.jpeg
@@ -55,4 +65,6 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+scripts:
+generator: dart pub run build_runner build --delete-conflicting-outputs
   

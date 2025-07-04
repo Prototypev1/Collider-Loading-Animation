@@ -9,6 +9,7 @@ import 'package:collider_loading/feature/animation/presentation/widgets/collisio
 import 'package:collider_loading/feature/animation/presentation/widgets/particle_layer.dart';
 
 class LoadingScreen extends StatefulWidget {
+  static const pageName = 'loading_screen';
   const LoadingScreen({super.key});
 
   @override

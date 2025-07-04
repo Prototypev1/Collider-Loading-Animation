@@ -1,0 +1,8 @@
+{
+    "app_bar": {
+        "home": "home",
+        "work": "work",
+        "about": "about",
+        "contact": "contact"
+    }
+}

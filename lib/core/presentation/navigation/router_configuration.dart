@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:collider_loading/feature/animation/presentation/loading_screen.dart';
+import 'package:collider_loading/feature/home/presentation/home_page.dart';
 import 'package:collider_loading/feature/main_page_container/presentation/main_page_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -33,11 +34,11 @@ class RouterConfiguration {
           navigatorKey: shellNavigatorKey,
           builder: (context, state, child) => MainPageContainer(child: child),
           routes: [
-            // GoRoute(
-            //   path: '/${HomeScreen.path}',
-            //   name: HomeScreen.path,
-            //   pageBuilder: (context, state) => NoTransitionPage(key: state.pageKey, child: const HomeScreen()),
-            // ),
+            GoRoute(
+              path: '/${HomePage.pageName}',
+              name: HomePage.pageName,
+              pageBuilder: (context, state) => NoTransitionPage(key: state.pageKey, child: const HomePage()),
+            ),
           ],
         ),
       ],

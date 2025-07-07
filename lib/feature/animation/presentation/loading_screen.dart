@@ -1,3 +1,4 @@
+import 'package:collider_loading/feature/home/presentation/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,6 +8,7 @@ import 'package:collider_loading/feature/animation/domain/cubit/loading_screen_s
 import 'package:collider_loading/feature/animation/presentation/widgets/background_gradient.dart';
 import 'package:collider_loading/feature/animation/presentation/widgets/collision_tube.dart';
 import 'package:collider_loading/feature/animation/presentation/widgets/particle_layer.dart';
+import 'package:go_router/go_router.dart';
 
 class LoadingScreen extends StatefulWidget {
   static const pageName = 'loading_screen';
@@ -32,6 +34,12 @@ class _LoadingScreenState extends State<LoadingScreen> with SingleTickerProvider
 
     Future.delayed(const Duration(milliseconds: 700), () {
       setState(() => _opacity = 1.0);
+    });
+
+    Future.delayed(const Duration(milliseconds: 100), () async {
+      if (mounted) {
+        await context.pushNamed(HomePage.pageName);
+      }
     });
   }
 

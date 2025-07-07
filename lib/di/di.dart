@@ -4,7 +4,6 @@ import 'package:collider_loading/feature/animation/domain/cubit/loading_screen_c
 import 'package:get_it/get_it.dart';
 
 final GetIt getIt = GetIt.instance;
-
 Future<void> initDI() async {
   await _registerUtils();
   _registerCubits();

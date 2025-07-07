@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:collider_loading/core/presentation/navigation/router_configuration.dart';
 import 'package:collider_loading/di/di.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/widgets.dart';
@@ -17,18 +18,18 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     await EasyLocalization.ensureInitialized();
 
     await initDI();
-    //  getIt.get<RouterConfiguration>().init();
+    getIt.get<RouterConfiguration>().init();
 
     runApp(
       EasyLocalization(
         // assetLoader: const CodegenLoader(),
         supportedLocales: const [Locale('en')],
         path: 'assets/localization',
-        fallbackLocale: const Locale('en'),
+        fallbackLocale: const Locale('sr'),
         child: await builder(),
       ),
     );
-  }, (error, stackTrace) => log(error.toString(), stackTrace: stackTrace));
+  }, (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),);
 }
 
 void _initLogger() {

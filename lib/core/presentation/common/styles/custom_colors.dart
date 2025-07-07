@@ -8,16 +8,12 @@ class CustomColors {
   Color get primaryText => Theme.of(_context).extension<CustomColorScheme>()!.primaryText!;
   Color get backgroundEndGradient => Theme.of(_context).extension<CustomColorScheme>()!.backgroundEndGradient!;
   Color get backgroundStartGradient => Theme.of(_context).extension<CustomColorScheme>()!.backgroundStartGradient!;
-  Color get editProfileBackground => Theme.of(_context).extension<CustomColorScheme>()!.editProfileBackground!;
   Color get tubeOutlineColor => Theme.of(_context).extension<CustomColorScheme>()!.tubeOutlineColor!;
-  Color get inputFieldBorder => Theme.of(_context).extension<CustomColorScheme>()!.inputFieldBorderColor!;
-  Color get mainGreen => Theme.of(_context).extension<CustomColorScheme>()!.mainGreenColor!;
-  Color get inputFieldTextColor => Theme.of(_context).extension<CustomColorScheme>()!.inputFieldTextColor!;
-  Color get eventLocationTextColor => Theme.of(_context).extension<CustomColorScheme>()!.eventLocationTextColor!;
-  Color get onboardingDescColor => Theme.of(_context).extension<CustomColorScheme>()!.onboardingDescColor!;
-  Color get onboardingSkipColor => Theme.of(_context).extension<CustomColorScheme>()!.onboardingSkipColor!;
-  Color get onboardingIndicatorColor => Theme.of(_context).extension<CustomColorScheme>()!.onboardingIndicatorColor!;
-  Color get circularBackButtonColor => Theme.of(_context).extension<CustomColorScheme>()!.circularBackButtonColor!;
+  Color get appBarGradientFirst => Theme.of(_context).extension<CustomColorScheme>()!.appBarGradientFirst!;
+  Color get appBarGradientSecond => Theme.of(_context).extension<CustomColorScheme>()!.appBarGradientSecond!;
+  Color get appBarGradientThird => Theme.of(_context).extension<CustomColorScheme>()!.appBarGradientThird!;
+  Color get appBarGradientFourth => Theme.of(_context).extension<CustomColorScheme>()!.appBarGradientFourth!;
+  Color get appBarGradientFifth => Theme.of(_context).extension<CustomColorScheme>()!.appBarGradientFifth!;
 }
 
 @immutable
@@ -25,50 +21,38 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
   const CustomColorScheme({
     required this.primary,
     required this.primaryText,
-    required this.tubeOutlineColor,
     required this.backgroundEndGradient,
     required this.backgroundStartGradient,
-    required this.editProfileBackground,
-    required this.inputFieldBorderColor,
-    required this.mainGreenColor,
-    required this.inputFieldTextColor,
-    required this.eventLocationTextColor,
-    required this.onboardingDescColor,
-    required this.onboardingSkipColor,
-    required this.onboardingIndicatorColor,
-    required this.circularBackButtonColor,
+    required this.tubeOutlineColor,
+    required this.appBarGradientFirst,
+    required this.appBarGradientSecond,
+    required this.appBarGradientThird,
+    required this.appBarGradientFourth,
+    required this.appBarGradientFifth,
   });
 
   const CustomColorScheme.classic()
-    : primary = Colors.blue,
-      primaryText = const Color(0xff13123A),
-      tubeOutlineColor = const Color(0xFF0d4015),
-      backgroundEndGradient = const Color(0xFF000000),
-      backgroundStartGradient = const Color(0xFF403e3e),
-      editProfileBackground = const Color(0xFFEEEEF1),
-      inputFieldBorderColor = const Color(0xFFE0E0E6),
-      mainGreenColor = const Color(0xFF5A8E22),
-      inputFieldTextColor = const Color(0xFF13123A),
-      eventLocationTextColor = const Color(0xFF7A7A90),
-      onboardingDescColor = const Color(0xFF414141),
-      onboardingSkipColor = const Color(0xFF101010),
-      onboardingIndicatorColor = const Color.fromRGBO(88, 88, 88, 1),
-      circularBackButtonColor = const Color(0xFFEEEEE1);
+      : primary = Colors.blue,
+        primaryText = const Color(0xFF13123A),
+        backgroundEndGradient = const Color(0xFF000000),
+        backgroundStartGradient = const Color(0xFF403e3e),
+        tubeOutlineColor = const Color(0xFF0d4015),
+        appBarGradientFirst = const Color(0xFF40372d),
+        appBarGradientSecond = const Color(0xFF282c2b),
+        appBarGradientThird = const Color(0xFF18232f),
+        appBarGradientFourth = const Color(0xFF182331),
+        appBarGradientFifth = const Color(0xFF182330);
 
   final Color? primary;
   final Color? primaryText;
-  final Color? tubeOutlineColor;
   final Color? backgroundEndGradient;
   final Color? backgroundStartGradient;
-  final Color? editProfileBackground;
-  final Color? inputFieldBorderColor;
-  final Color? mainGreenColor;
-  final Color? inputFieldTextColor;
-  final Color? eventLocationTextColor;
-  final Color? onboardingDescColor;
-  final Color? onboardingSkipColor;
-  final Color? onboardingIndicatorColor;
-  final Color? circularBackButtonColor;
+  final Color? tubeOutlineColor;
+  final Color? appBarGradientFirst;
+  final Color? appBarGradientSecond;
+  final Color? appBarGradientThird;
+  final Color? appBarGradientFourth;
+  final Color? appBarGradientFifth;
 
   @override
   CustomColorScheme copyWith({
@@ -76,32 +60,24 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
     Color? primaryText,
     Color? backgroundEndGradient,
     Color? backgroundStartGradient,
-    Color? editProfileBackground,
     Color? tubeOutlineColor,
-    Color? inputFieldBorderColor,
-    Color? mainGreenColor,
-    Color? inputFieldTextColor,
-    Color? eventLocationTextColor,
-    Color? onboardingDescColor,
-    Color? onboardingSkipColor,
-    Color? onboardingIndicatorColor,
-    Color? circularBackButtonColor,
+    Color? appBarGradientFirst,
+    Color? appBarGradientSecond,
+    Color? appBarGradientThird,
+    Color? appBarGradientFourth,
+    Color? appBarGradientFifth,
   }) {
     return CustomColorScheme(
       primary: primary ?? this.primary,
       primaryText: primaryText ?? this.primaryText,
       backgroundEndGradient: backgroundEndGradient ?? this.backgroundEndGradient,
       backgroundStartGradient: backgroundStartGradient ?? this.backgroundStartGradient,
-      editProfileBackground: editProfileBackground ?? this.editProfileBackground,
       tubeOutlineColor: tubeOutlineColor ?? this.tubeOutlineColor,
-      inputFieldBorderColor: inputFieldBorderColor ?? this.inputFieldBorderColor,
-      mainGreenColor: mainGreenColor ?? this.mainGreenColor,
-      inputFieldTextColor: inputFieldTextColor ?? this.inputFieldTextColor,
-      eventLocationTextColor: eventLocationTextColor ?? this.eventLocationTextColor,
-      onboardingDescColor: onboardingDescColor ?? this.onboardingDescColor,
-      onboardingSkipColor: onboardingSkipColor ?? this.onboardingSkipColor,
-      onboardingIndicatorColor: onboardingIndicatorColor ?? this.onboardingIndicatorColor,
-      circularBackButtonColor: circularBackButtonColor ?? this.circularBackButtonColor,
+      appBarGradientFirst: appBarGradientFirst ?? this.appBarGradientFirst,
+      appBarGradientSecond: appBarGradientSecond ?? this.appBarGradientSecond,
+      appBarGradientThird: appBarGradientThird ?? this.appBarGradientThird,
+      appBarGradientFourth: appBarGradientFourth ?? this.appBarGradientFourth,
+      appBarGradientFifth: appBarGradientFifth ?? this.appBarGradientFifth,
     );
   }
 
@@ -113,16 +89,12 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
       primaryText: Color.lerp(primaryText, other.primaryText, t),
       backgroundEndGradient: Color.lerp(backgroundEndGradient, other.backgroundEndGradient, t),
       backgroundStartGradient: Color.lerp(backgroundStartGradient, other.backgroundStartGradient, t),
-      editProfileBackground: Color.lerp(editProfileBackground, other.editProfileBackground, t),
       tubeOutlineColor: Color.lerp(tubeOutlineColor, other.tubeOutlineColor, t),
-      inputFieldBorderColor: Color.lerp(inputFieldBorderColor, other.inputFieldBorderColor, t),
-      mainGreenColor: Color.lerp(mainGreenColor, other.mainGreenColor, t),
-      inputFieldTextColor: Color.lerp(inputFieldTextColor, other.inputFieldTextColor, t),
-      eventLocationTextColor: Color.lerp(eventLocationTextColor, other.eventLocationTextColor, t),
-      onboardingDescColor: Color.lerp(onboardingDescColor, other.onboardingDescColor, t),
-      onboardingSkipColor: Color.lerp(onboardingSkipColor, other.onboardingSkipColor, t),
-      onboardingIndicatorColor: Color.lerp(onboardingIndicatorColor, other.onboardingIndicatorColor, t),
-      circularBackButtonColor: Color.lerp(circularBackButtonColor, other.circularBackButtonColor, t),
+      appBarGradientFirst: Color.lerp(appBarGradientFirst, other.appBarGradientFirst, t),
+      appBarGradientSecond: Color.lerp(appBarGradientSecond, other.appBarGradientSecond, t),
+      appBarGradientThird: Color.lerp(appBarGradientThird, other.appBarGradientThird, t),
+      appBarGradientFourth: Color.lerp(appBarGradientFourth, other.appBarGradientFourth, t),
+      appBarGradientFifth: Color.lerp(appBarGradientFifth, other.appBarGradientFifth, t),
     );
   }
 }

@@ -12,66 +12,47 @@ part of 'app_state.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
+
 /// @nodoc
 mixin _$AppState {
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AppState);
+  }
 
+  @override
+  int get hashCode => runtimeType.hashCode;
 
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppState);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'AppState()';
-}
-
-
+  @override
+  String toString() {
+    return 'AppState()';
+  }
 }
 
 /// @nodoc
-class $AppStateCopyWith<$Res>  {
-$AppStateCopyWith(AppState _, $Res Function(AppState) __);
+class $AppStateCopyWith<$Res> {
+  $AppStateCopyWith(AppState _, $Res Function(AppState) __);
 }
 
-
 /// @nodoc
-
 
 class AppStateInitial implements AppState {
   const AppStateInitial();
-  
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AppStateInitial);
+  }
 
+  @override
+  int get hashCode => runtimeType.hashCode;
 
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppStateInitial);
+  @override
+  String toString() {
+    return 'AppState.initial()';
+  }
 }
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'AppState.initial()';
-}
-
-
-}
-
-
-
 
 // dart format on

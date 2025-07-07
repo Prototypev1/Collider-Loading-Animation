@@ -1,7 +1,7 @@
-import 'dart:async';
 import 'dart:io';
 
 import 'package:collider_loading/feature/animation/presentation/loading_screen.dart';
+import 'package:collider_loading/feature/contact/presentation/contact_page.dart';
 import 'package:collider_loading/feature/home/presentation/home_page.dart';
 import 'package:collider_loading/feature/main_page_container/presentation/main_page_container.dart';
 import 'package:flutter/cupertino.dart';
@@ -29,7 +29,6 @@ class RouterConfiguration {
           name: LoadingScreen.pageName,
           pageBuilder: (context, state) => _getPage(key: state.pageKey, child: const LoadingScreen()),
         ),
-
         ShellRoute(
           navigatorKey: shellNavigatorKey,
           builder: (context, state, child) => MainPageContainer(child: child),
@@ -38,6 +37,11 @@ class RouterConfiguration {
               path: '/${HomePage.pageName}',
               name: HomePage.pageName,
               pageBuilder: (context, state) => NoTransitionPage(key: state.pageKey, child: const HomePage()),
+            ),
+            GoRoute(
+              path: '/${ContactPage.pageName}',
+              name: ContactPage.pageName,
+              pageBuilder: (context, state) => NoTransitionPage(key: state.pageKey, child: const ContactPage()),
             ),
           ],
         ),
@@ -49,25 +53,10 @@ class RouterConfiguration {
     if (kIsWeb) {
       return NoTransitionPage(key: key, child: child);
     }
-
     if (Platform.isAndroid) {
       return NoTransitionPage(key: key, child: child);
     } else {
       return CupertinoPage(key: key, child: child);
     }
-  }
-}
-
-class GoRouterRefreshStream extends ChangeNotifier {
-  GoRouterRefreshStream(Stream<dynamic> stream) {
-    notifyListeners();
-    _subscription = stream.asBroadcastStream().listen((_) => notifyListeners());
-  }
-  late final StreamSubscription<dynamic> _subscription;
-
-  @override
-  void dispose() {
-    _subscription.cancel();
-    super.dispose();
   }
 }

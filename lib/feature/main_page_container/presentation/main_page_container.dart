@@ -1,5 +1,4 @@
 import 'package:collider_loading/core/presentation/common/widgets/app_bar/custom_app_bar.dart';
-import 'package:collider_loading/di/di.dart';
 import 'package:collider_loading/feature/main_page_container/domain/cubit/main_page_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

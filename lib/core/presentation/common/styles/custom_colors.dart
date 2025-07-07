@@ -14,6 +14,7 @@ class CustomColors {
   Color get appBarGradientThird => Theme.of(_context).extension<CustomColorScheme>()!.appBarGradientThird!;
   Color get appBarGradientFourth => Theme.of(_context).extension<CustomColorScheme>()!.appBarGradientFourth!;
   Color get appBarGradientFifth => Theme.of(_context).extension<CustomColorScheme>()!.appBarGradientFifth!;
+  Color get appBarTabSplash => Theme.of(_context).extension<CustomColorScheme>()!.appBarTabSplash!;
 }
 
 @immutable
@@ -29,9 +30,10 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
     required this.appBarGradientThird,
     required this.appBarGradientFourth,
     required this.appBarGradientFifth,
+    required this.appBarTabSplash,
   });
 
-  const CustomColorScheme.classic()
+  CustomColorScheme.classic()
       : primary = Colors.blue,
         primaryText = const Color(0xFF13123A),
         backgroundEndGradient = const Color(0xFF000000),
@@ -41,7 +43,8 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
         appBarGradientSecond = const Color(0xFF282c2b),
         appBarGradientThird = const Color(0xFF18232f),
         appBarGradientFourth = const Color(0xFF182331),
-        appBarGradientFifth = const Color(0xFF182330);
+        appBarGradientFifth = const Color(0xFF182330),
+        appBarTabSplash = Colors.white.withValues(alpha: 0.1);
 
   final Color? primary;
   final Color? primaryText;
@@ -53,6 +56,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
   final Color? appBarGradientThird;
   final Color? appBarGradientFourth;
   final Color? appBarGradientFifth;
+  final Color? appBarTabSplash;
 
   @override
   CustomColorScheme copyWith({
@@ -66,6 +70,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
     Color? appBarGradientThird,
     Color? appBarGradientFourth,
     Color? appBarGradientFifth,
+    Color? appBarTabSplash,
   }) {
     return CustomColorScheme(
       primary: primary ?? this.primary,
@@ -78,6 +83,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
       appBarGradientThird: appBarGradientThird ?? this.appBarGradientThird,
       appBarGradientFourth: appBarGradientFourth ?? this.appBarGradientFourth,
       appBarGradientFifth: appBarGradientFifth ?? this.appBarGradientFifth,
+      appBarTabSplash: appBarTabSplash ?? this.appBarTabSplash,
     );
   }
 
@@ -95,6 +101,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
       appBarGradientThird: Color.lerp(appBarGradientThird, other.appBarGradientThird, t),
       appBarGradientFourth: Color.lerp(appBarGradientFourth, other.appBarGradientFourth, t),
       appBarGradientFifth: Color.lerp(appBarGradientFifth, other.appBarGradientFifth, t),
+      appBarTabSplash: Color.lerp(appBarTabSplash, other.appBarTabSplash, t),
     );
   }
 }

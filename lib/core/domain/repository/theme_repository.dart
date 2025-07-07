@@ -3,7 +3,7 @@ import 'package:collider_loading/core/presentation/common/styles/custom_text_sty
 import 'package:flutter/material.dart';
 
 class ThemeRepository {
-  final _colorScheme = const CustomColorScheme.classic();
+  final _colorScheme = CustomColorScheme.classic();
   String? _appLogoSvgUrl;
 
   String? get appLogoSvgUrl => _appLogoSvgUrl;

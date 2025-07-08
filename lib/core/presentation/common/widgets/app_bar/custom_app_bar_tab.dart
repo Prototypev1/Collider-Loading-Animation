@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 class CustomAppBarTab extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
+  final bool isActive;
 
   const CustomAppBarTab({
     super.key,
     required this.text,
     required this.onPressed,
+    required this.isActive,
   });
 
   @override

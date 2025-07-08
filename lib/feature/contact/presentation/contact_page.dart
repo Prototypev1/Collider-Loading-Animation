@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class ContactPage extends StatelessWidget {
@@ -6,8 +7,18 @@ class ContactPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [],
+    return Expanded(
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 100,
+          ),
+          Text(
+            'sdjfnasjdf',
+            style: TextStyle(color: Colors.white),
+          )
+        ],
+      ),
     );
   }
 }

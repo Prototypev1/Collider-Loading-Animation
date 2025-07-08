@@ -215,6 +215,74 @@ class _$MainPageStateLoadingCopyWithImpl<$Res>
 
 /// @nodoc
 
+class MainPageStateReady implements MainPageState {
+  const MainPageStateReady({required this.page});
+
+  @override
+  final int page;
+
+  /// Create a copy of MainPageState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $MainPageStateReadyCopyWith<MainPageStateReady> get copyWith =>
+      _$MainPageStateReadyCopyWithImpl<MainPageStateReady>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MainPageStateReady &&
+            (identical(other.page, page) || other.page == page));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, page);
+
+  @override
+  String toString() {
+    return 'MainPageState.ready(page: $page)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $MainPageStateReadyCopyWith<$Res>
+    implements $MainPageStateCopyWith<$Res> {
+  factory $MainPageStateReadyCopyWith(
+          MainPageStateReady value, $Res Function(MainPageStateReady) _then) =
+      _$MainPageStateReadyCopyWithImpl;
+  @override
+  @useResult
+  $Res call({int page});
+}
+
+/// @nodoc
+class _$MainPageStateReadyCopyWithImpl<$Res>
+    implements $MainPageStateReadyCopyWith<$Res> {
+  _$MainPageStateReadyCopyWithImpl(this._self, this._then);
+
+  final MainPageStateReady _self;
+  final $Res Function(MainPageStateReady) _then;
+
+  /// Create a copy of MainPageState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? page = null,
+  }) {
+    return _then(MainPageStateReady(
+      page: null == page
+          ? _self.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
 class MainPageStateSuccess implements MainPageState {
   const MainPageStateSuccess({required this.page});
 

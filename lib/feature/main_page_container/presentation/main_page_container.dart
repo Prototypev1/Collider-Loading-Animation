@@ -1,5 +1,7 @@
 import 'package:collider_loading/core/presentation/common/widgets/app_bar/custom_app_bar.dart';
+import 'package:collider_loading/di/di.dart';
 import 'package:collider_loading/feature/main_page_container/domain/cubit/main_page_cubit.dart';
+import 'package:collider_loading/feature/main_page_container/domain/cubit/main_page_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,32 +17,36 @@ class _MainPageContainerState extends State<MainPageContainer> {
   late final MainPageCubit _cubit;
 
   @override
+  void initState() {
+    super.initState();
+
+    _cubit = getIt<MainPageCubit>();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) {
-        _cubit = MainPageCubit();
-        return _cubit;
-      },
-      child: BlocConsumer(
-        listener: (context, state) {
-          //might need some logic
-        },
-        builder: (context, state) {
-          return Scaffold(
-            backgroundColor: Colors.black,
-            body: Stack(
-              children: [
+    return Scaffold(
+        backgroundColor: Colors.black,
+        body: Stack(children: [
+          BlocConsumer(
+            bloc: _cubit,
+            listener: (context, state) {
+              //might need some logic
+            },
+            builder: (context, state) {
+              if (state is MainPageStateReady)
                 Positioned(
                   top: 0,
                   left: 0,
                   right: 0,
-                  child: CustomAppBar(),
-                ),
-              ],
-            ),
-          );
-        },
-      ),
-    );
+                  child: CustomAppBar(
+                      onPageChanged: (int page) {
+                        _cubit.changePage(page);
+                      },
+                      page: state.page),
+                );
+            },
+          )
+        ]));
   }
 }

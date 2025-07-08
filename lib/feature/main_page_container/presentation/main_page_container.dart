@@ -19,34 +19,45 @@ class _MainPageContainerState extends State<MainPageContainer> {
   @override
   void initState() {
     super.initState();
-
     _cubit = getIt<MainPageCubit>();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
-        body: Stack(children: [
-          BlocConsumer(
-            bloc: _cubit,
-            listener: (context, state) {
-              //might need some logic
-            },
-            builder: (context, state) {
-              if (state is MainPageStateReady)
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  child: CustomAppBar(
-                      onPageChanged: (int page) {
-                        _cubit.changePage(page);
-                      },
-                      page: state.page),
-                );
-            },
-          )
-        ]));
+      backgroundColor: Colors.black,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Positioned.fill(
+              top: kToolbarHeight,
+              child: BlocBuilder<MainPageCubit, MainPageState>(
+                bloc: _cubit,
+                builder: (context, state) {
+                  if (state is MainPageStateInitial) {
+                    return widget.child;
+                  } else if (state is MainPageStateLoading) {
+                    return Center(child: CircularProgressIndicator());
+                  } else if (state is MainPageStateReady) {
+                    return Center(child: Text('Page ready', style: TextStyle(color: Colors.white)));
+                  } else {
+                    return SizedBox.shrink();
+                  }
+                },
+              ),
+            ),
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: CustomAppBar(
+                page: _cubit.state.page,
+                onPageChanged: _cubit.changePage,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -21,6 +21,7 @@ dependencies:
   go_router: ^15.2.4
   json_annotation: ^4.9.0
   json_serializable: ^6.9.5
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_test:
@@ -36,6 +37,7 @@ flutter:
   assets:
     - assets/localization/
     - assets/fonts/
+    - assets/images/
   fonts:
     - family: CourierPrime
       fonts:

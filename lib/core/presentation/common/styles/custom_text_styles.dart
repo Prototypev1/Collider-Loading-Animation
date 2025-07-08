@@ -194,9 +194,9 @@ class CustomTextStyleScheme extends ThemeExtension<CustomTextStyleScheme> {
         fontFamily: courierBold,
         color: primaryTextColor,
         fontSize: 30,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w200,
         decoration: TextDecoration.none,
-        letterSpacing: -0.2,
+        letterSpacing: 1.0,
       ),
     );
   }

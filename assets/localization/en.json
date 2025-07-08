@@ -4,5 +4,8 @@
         "work": "work",
         "about": "about",
         "contact": "contact"
+    },
+    "contact_page": {
+        "contact_data": "contact information"
     }
 }

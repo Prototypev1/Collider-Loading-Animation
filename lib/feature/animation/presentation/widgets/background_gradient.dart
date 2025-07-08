@@ -11,8 +11,10 @@ class BackgroundGradient extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-
-          colors: [CustomColors.of(context).backgroundStartGradient, CustomColors.of(context).backgroundEndGradient],
+          colors: [
+            CustomColors.of(context).backgroundStartGradient,
+            CustomColors.of(context).backgroundEndGradient,
+          ],
         ),
       ),
     );

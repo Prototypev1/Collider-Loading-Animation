@@ -8,6 +8,9 @@
     "contact_page": {
         "contact_data": "kontakt informacije",
         "description_first": "Bilo da imate pitanje, ideju za projekat ili ste zainteresovani za potencijalne poslovne prilike — slobodno me kontaktirajte. Uvek sam otvoren za nove ideje, saradnju i nova poznanstva.",
-        "description_second": "Slobodno me kontaktirajte putem bilo kog od dole navedenih načina. Sve upite shvatam ozbiljno i odgovaram u najkraćem mogućem roku."
+        "description_second": "Slobodno me kontaktirajte putem bilo kog od dole navedenih načina. Sve upite shvatam ozbiljno i odgovaram u najkraćem mogućem roku.",
+        "description_linkedin": "Klikom na linkedIn ikonicu bićete poslati na moj profil, tamo možemo da se povežemo, pričamo ili prodiskutujemo bilo šta.",
+        "description_email": "Klikom na email ikonicu bićete poslati na email aplikaciju da mi direktno pošaljete email.",
+        "description_form": "Ili, ispunite formu ovde"
     }
 }

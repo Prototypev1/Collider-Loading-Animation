@@ -77,14 +77,12 @@ class ContactPage extends StatelessWidget {
                     children: [
                       SocialContactColumn(
                         imageUrl: 'assets/images/linkedin.png',
-                        description:
-                            'Just tap on the LinkedIn icon and you will be sent to my profile, there we can connect, talk and discuss anything.',
+                        description: 'contact_page.description_linkedin',
                         onPressed: launchLinkedInUrl,
                       ),
                       SocialContactColumn(
                         imageUrl: 'assets/images/email.png',
-                        description:
-                            'Click on the email icon and you will be sent to the default email app to send me an email.',
+                        description: 'contact_page.description_email',
                         onPressed: () {
                           launchEmailWeb();
                         },

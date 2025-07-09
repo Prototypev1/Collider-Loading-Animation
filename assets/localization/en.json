@@ -8,6 +8,9 @@
     "contact_page": {
         "contact_data": "contact information",
         "description_first": "Whether you have a question, a project in mind, or you're interested in potential job opportunities — feel free to reach out. I'm always open to discussing new ideas, collaborations, or just connecting.",
-        "description_second": "Feel free to reach out via any of the methods listed below. I prioritize all inquiries and will respond as quickly as possible."
+        "description_second": "Feel free to reach out via any of the methods listed below. I prioritize all inquiries and will respond as quickly as possible.",
+        "description_linkedin": "Just tap on the LinkedIn icon and you will be sent to my profile, there we can connect, talk and discuss anything.",
+        "description_email": "Click on the email icon and you will be sent to the email app to send me an email.",
+        "description_form": "Or, just fill the form out here"
     }
 }

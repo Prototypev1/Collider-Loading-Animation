@@ -2,6 +2,8 @@ import 'package:collider_loading/core/presentation/common/styles/custom_text_sty
 import 'package:collider_loading/feature/contact/presentation/widgets/social_contact_row.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:collider_loading/constants.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class ContactPage extends StatelessWidget {
@@ -10,15 +12,27 @@ class ContactPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void launchEmailWeb() {
-      final String email = 'mradisavljevicmas@gmail.com';
+    void launchEmailWeb() async {
+      final String recipientEmail = emailAddress;
       final String subject = 'Hello';
       final String body = 'I wanted to get in touch...';
 
-      final String mailtoLink =
-          'mailto:$email?subject=${Uri.encodeComponent(subject)}&body=${Uri.encodeComponent(body)}';
+      final String gmailUrl =
+          'https://mail.google.com/mail/?view=cm&tf=1&to=$recipientEmail&su=${Uri.encodeComponent(subject)}&body=${Uri.encodeComponent(body)}';
 
-      launchUrlString(mailtoLink);
+      if (!await launchUrl(Uri.parse(gmailUrl), mode: LaunchMode.platformDefault)) {
+        debugPrint('Could not launch Gmail URL: $gmailUrl');
+      }
+    }
+
+    Future<void> launchLinkedInUrl() async {
+      const String profileUrl = linkedInProfileUrl;
+
+      if (await canLaunchUrlString(profileUrl)) {
+        await launchUrlString(profileUrl);
+      } else {
+        debugPrint('Could not launch LinkedIn URL.');
+      }
     }
 
     return SingleChildScrollView(
@@ -34,6 +48,7 @@ class ContactPage extends StatelessWidget {
                 child: Text(
                   'contact_page.contact_data'.tr(),
                   style: CustomTextStyles.of(context).bold30.apply(color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
               ),
               const SizedBox(height: 40),
@@ -49,15 +64,13 @@ class ContactPage extends StatelessWidget {
                   style: CustomTextStyles.of(context).regular16.apply(color: Colors.white),
                 ).tr(),
               ),
-              const SizedBox(height: 100),
+              const SizedBox(height: 200),
               LayoutBuilder(
                 builder: (context, constraints) {
-                  final int crossAxisCount = constraints.maxWidth < 600 ? 1 : 2;
+                  final crossAxisCount = constraints.maxWidth < 850 ? 1 : 2;
 
                   return GridView.count(
                     crossAxisCount: crossAxisCount,
-                    crossAxisSpacing: 40,
-                    mainAxisSpacing: 60,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     childAspectRatio: 3 / 2,
@@ -66,6 +79,7 @@ class ContactPage extends StatelessWidget {
                         imageUrl: 'assets/images/linkedin.png',
                         description:
                             'Just tap on the LinkedIn icon and you will be sent to my profile, there we can connect, talk and discuss anything.',
+                        onPressed: launchLinkedInUrl,
                       ),
                       SocialContactColumn(
                         imageUrl: 'assets/images/email.png',

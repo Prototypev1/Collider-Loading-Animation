@@ -18,7 +18,7 @@ class SocialContactColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final double itemWidth = constraints.maxWidth / 2 - 20;
+        final itemWidth = constraints.maxWidth / 2 - 80;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

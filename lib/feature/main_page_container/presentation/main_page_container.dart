@@ -25,7 +25,7 @@ class _MainPageContainerState extends State<MainPageContainer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       body: SafeArea(
         child: Stack(
           children: [

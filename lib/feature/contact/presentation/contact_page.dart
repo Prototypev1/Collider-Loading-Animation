@@ -64,32 +64,45 @@ class ContactPage extends StatelessWidget {
                   style: CustomTextStyles.of(context).regular16.apply(color: Colors.white),
                 ).tr(),
               ),
-              const SizedBox(height: 200),
+              const SizedBox(height: 120),
               LayoutBuilder(
                 builder: (context, constraints) {
                   final crossAxisCount = constraints.maxWidth < 850 ? 1 : 2;
 
-                  return GridView.count(
-                    crossAxisCount: crossAxisCount,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    childAspectRatio: 3 / 2,
-                    children: [
-                      SocialContactColumn(
-                        imageUrl: 'assets/images/linkedin.png',
-                        description: 'contact_page.description_linkedin',
-                        onPressed: launchLinkedInUrl,
-                      ),
-                      SocialContactColumn(
-                        imageUrl: 'assets/images/email.png',
-                        description: 'contact_page.description_email',
-                        onPressed: () {
-                          launchEmailWeb();
-                        },
-                      ),
-                    ],
+                  return ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxHeight: constraints.maxWidth < 850
+                          ? MediaQuery.of(context).size.height / 1.1
+                          : MediaQuery.of(context).size.height / 3,
+                    ),
+                    child: GridView.count(
+                      crossAxisCount: crossAxisCount,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      childAspectRatio: 3 / 2,
+                      children: [
+                        SocialContactColumn(
+                          imageUrl: 'assets/images/linkedin.png',
+                          description: 'contact_page.description_linkedin'.tr(),
+                          onPressed: launchLinkedInUrl,
+                        ),
+                        SocialContactColumn(
+                          imageUrl: 'assets/images/email.png',
+                          description: 'contact_page.description_email'.tr(),
+                          onPressed: () {
+                            launchEmailWeb();
+                          },
+                        ),
+                      ],
+                    ),
                   );
                 },
+              ),
+              Center(
+                child: Text(
+                  'contact_page.description_form',
+                  style: CustomTextStyles.of(context).regular16.apply(color: Colors.white),
+                ).tr(),
               ),
             ],
           ),

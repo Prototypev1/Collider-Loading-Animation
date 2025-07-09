@@ -4,5 +4,10 @@
         "work": "poslovi",
         "about": "o nama",
         "contact": "kontakt"
+    },
+    "contact_page": {
+        "contact_data": "kontakt informacije",
+        "description_first": "Bilo da imate pitanje, ideju za projekat ili ste zainteresovani za potencijalne poslovne prilike — slobodno me kontaktirajte. Uvek sam otvoren za nove ideje, saradnju i nova poznanstva.",
+        "description_second": "Slobodno me kontaktirajte putem bilo kog od dole navedenih načina. Sve upite shvatam ozbiljno i odgovaram u najkraćem mogućem roku."
     }
 }

@@ -1,3 +1,4 @@
+import 'package:collider_loading/feature/contact/presentation/contact_page.dart';
 import 'package:collider_loading/feature/home/presentation/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,7 +39,7 @@ class _LoadingScreenState extends State<LoadingScreen> with SingleTickerProvider
 
     Future.delayed(const Duration(milliseconds: 100), () async {
       if (mounted) {
-        await context.pushNamed(HomePage.pageName);
+        await context.pushNamed(ContactPage.pageName);
       }
     });
   }

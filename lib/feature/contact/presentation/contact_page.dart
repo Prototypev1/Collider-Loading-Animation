@@ -1,4 +1,5 @@
 import 'package:collider_loading/core/presentation/common/styles/custom_text_styles.dart';
+import 'package:collider_loading/feature/contact/presentation/widgets/send_email_form.dart';
 import 'package:collider_loading/feature/contact/presentation/widgets/social_contact_row.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -107,6 +108,9 @@ class ContactPage extends StatelessWidget {
                     style: CustomTextStyles.of(context).regular16.apply(color: Colors.white),
                   ).tr(),
                 ),
+                const SizedBox(height: 40),
+                SendEmailForm(),
+                const SizedBox(height: 40),
               ],
             ),
           ),

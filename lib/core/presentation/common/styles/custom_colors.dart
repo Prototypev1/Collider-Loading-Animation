@@ -15,6 +15,7 @@ class CustomColors {
   Color get appBarGradientFourth => Theme.of(_context).extension<CustomColorScheme>()!.appBarGradientFourth!;
   Color get appBarGradientFifth => Theme.of(_context).extension<CustomColorScheme>()!.appBarGradientFifth!;
   Color get appBarTabSplash => Theme.of(_context).extension<CustomColorScheme>()!.appBarTabSplash!;
+  Color get emailFormBorder => Theme.of(_context).extension<CustomColorScheme>()!.emailFormBorder!;
 }
 
 @immutable
@@ -31,6 +32,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
     required this.appBarGradientFourth,
     required this.appBarGradientFifth,
     required this.appBarTabSplash,
+    required this.emailFormBorder,
   });
 
   CustomColorScheme.classic()
@@ -44,7 +46,8 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
         appBarGradientThird = const Color(0xFF18232f),
         appBarGradientFourth = const Color(0xFF182331),
         appBarGradientFifth = const Color(0xFF182330),
-        appBarTabSplash = Colors.white.withValues(alpha: 0.1);
+        appBarTabSplash = Colors.white.withValues(alpha: 0.1),
+        emailFormBorder = const Color(0xFF2596be);
 
   final Color? primary;
   final Color? primaryText;
@@ -57,6 +60,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
   final Color? appBarGradientFourth;
   final Color? appBarGradientFifth;
   final Color? appBarTabSplash;
+  final Color? emailFormBorder;
 
   @override
   CustomColorScheme copyWith({
@@ -71,6 +75,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
     Color? appBarGradientFourth,
     Color? appBarGradientFifth,
     Color? appBarTabSplash,
+    Color? emailFormBorder,
   }) {
     return CustomColorScheme(
       primary: primary ?? this.primary,
@@ -84,6 +89,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
       appBarGradientFourth: appBarGradientFourth ?? this.appBarGradientFourth,
       appBarGradientFifth: appBarGradientFifth ?? this.appBarGradientFifth,
       appBarTabSplash: appBarTabSplash ?? this.appBarTabSplash,
+      emailFormBorder: emailFormBorder ?? this.emailFormBorder,
     );
   }
 
@@ -102,6 +108,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
       appBarGradientFourth: Color.lerp(appBarGradientFourth, other.appBarGradientFourth, t),
       appBarGradientFifth: Color.lerp(appBarGradientFifth, other.appBarGradientFifth, t),
       appBarTabSplash: Color.lerp(appBarTabSplash, other.appBarTabSplash, t),
+      emailFormBorder: Color.lerp(emailFormBorder, other.emailFormBorder, t),
     );
   }
 }

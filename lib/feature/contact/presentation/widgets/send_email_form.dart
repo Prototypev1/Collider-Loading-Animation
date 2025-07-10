@@ -1,5 +1,5 @@
 import 'package:collider_loading/core/presentation/common/styles/custom_colors.dart';
-import 'package:collider_loading/core/presentation/common/widgets/custom_text_field.dart';
+import 'package:collider_loading/core/presentation/common/widgets/custom_input_field.dart';
 import 'package:flutter/material.dart';
 
 class SendEmailForm extends StatelessWidget {

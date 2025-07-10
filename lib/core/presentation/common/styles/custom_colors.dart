@@ -37,7 +37,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
 
   CustomColorScheme.classic()
       : primary = Colors.blue,
-        primaryText = const Color(0xFF13123A),
+        primaryText = const Color(0xFF000000),
         backgroundEndGradient = const Color(0xFF000000),
         backgroundStartGradient = const Color(0xFF403e3e),
         tubeOutlineColor = const Color(0xFF0d4015),

@@ -41,70 +41,74 @@ class ContactPage extends StatelessWidget {
         padding: const EdgeInsets.only(top: kToolbarHeight + 16),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width / 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Text(
+          child: ConstrainedBox(
+            constraints:
+                BoxConstraints(maxWidth: MediaQuery.of(context).size.width - MediaQuery.of(context).size.width / 10),
+            child: Column(
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              // mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
                   'contact_page.contact_data'.tr(),
                   style: CustomTextStyles.of(context).bold30.apply(color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
-              ),
-              const SizedBox(height: 40),
-              Center(
-                child: Text(
-                  'contact_page.description_first',
-                  style: CustomTextStyles.of(context).regular16.apply(color: Colors.white),
-                ).tr(),
-              ),
-              Center(
-                child: Text(
-                  'contact_page.description_second',
-                  style: CustomTextStyles.of(context).regular16.apply(color: Colors.white),
-                ).tr(),
-              ),
-              const SizedBox(height: 120),
-              LayoutBuilder(
-                builder: (context, constraints) {
-                  final crossAxisCount = constraints.maxWidth < 850 ? 1 : 2;
+                const SizedBox(height: 40),
+                Center(
+                  child: Text(
+                    'contact_page.description_first',
+                    style: CustomTextStyles.of(context).regular16.apply(color: Colors.white),
+                  ).tr(),
+                ),
+                Center(
+                  child: Text(
+                    'contact_page.description_second',
+                    style: CustomTextStyles.of(context).regular16.apply(color: Colors.white),
+                  ).tr(),
+                ),
+                const SizedBox(height: 120),
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    final crossAxisCount = constraints.maxWidth < 850 ? 1 : 2;
 
-                  return ConstrainedBox(
-                    constraints: BoxConstraints(
-                      maxHeight: constraints.maxWidth < 850
-                          ? MediaQuery.of(context).size.height / 1.1
-                          : MediaQuery.of(context).size.height / 3,
-                    ),
-                    child: GridView.count(
-                      crossAxisCount: crossAxisCount,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      childAspectRatio: 3 / 2,
-                      children: [
-                        SocialContactColumn(
-                          imageUrl: 'assets/images/linkedin.png',
-                          description: 'contact_page.description_linkedin'.tr(),
-                          onPressed: launchLinkedInUrl,
-                        ),
-                        SocialContactColumn(
-                          imageUrl: 'assets/images/email.png',
-                          description: 'contact_page.description_email'.tr(),
-                          onPressed: () {
-                            launchEmailWeb();
-                          },
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-              Center(
-                child: Text(
-                  'contact_page.description_form',
-                  style: CustomTextStyles.of(context).regular16.apply(color: Colors.white),
-                ).tr(),
-              ),
-            ],
+                    return ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxHeight: constraints.maxWidth < 850
+                            ? MediaQuery.of(context).size.height / 1
+                            : MediaQuery.of(context).size.height / 3,
+                      ),
+                      child: GridView.count(
+                        crossAxisCount: crossAxisCount,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        childAspectRatio: 3 / 2.1,
+                        children: [
+                          SocialContactColumn(
+                            imageUrl: 'assets/images/linkedin.png',
+                            description: 'contact_page.description_linkedin'.tr(),
+                            onPressed: launchLinkedInUrl,
+                          ),
+                          SocialContactColumn(
+                            imageUrl: 'assets/images/email.png',
+                            description: 'contact_page.description_email'.tr(),
+                            onPressed: () {
+                              launchEmailWeb();
+                            },
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height < 850 ? 100 : 0),
+                Center(
+                  child: Text(
+                    'contact_page.description_form',
+                    style: CustomTextStyles.of(context).regular16.apply(color: Colors.white),
+                  ).tr(),
+                ),
+              ],
+            ),
           ),
         ),
       ),

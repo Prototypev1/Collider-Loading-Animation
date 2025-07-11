@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
-  const CustomTextField({super.key});
+  final String? fieldName;
+  const CustomTextField({
+    super.key,
+    this.fieldName,
+  });
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -10,6 +14,6 @@ class CustomTextField extends StatefulWidget {
 class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(children: [Text(widget.fieldName ?? ''), const SizedBox(height: 4), TextFormField()]);
   }
 }

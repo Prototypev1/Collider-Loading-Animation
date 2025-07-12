@@ -493,6 +493,24 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.1"
+  logger:
+    dependency: transitive
+    description:
+      path: "."
+      ref: "623a04e5823d5811aedcca5732dd8ccc60246147"
+      resolved-ref: "623a04e5823d5811aedcca5732dd8ccc60246147"
+      url: "https://github.com/leisim/logger"
+    source: git
+    version: "1.1.0"
+  logger_service:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: main
+      resolved-ref: "5bcbca3aed1c5e8760c00c2b6c335b9339584b84"
+      url: "https://github.com/foresightmobile/logger_service.git"
+    source: git
+    version: "1.0.0"
   logging:
     dependency: transitive
     description:

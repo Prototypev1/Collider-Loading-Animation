@@ -8,11 +8,11 @@ class HomePageRepositoryImpl implements HomePageRepository {
 
   final BaseApiRepository _baseApiRepository;
 
-  static const _huggingfaceUrl = 'https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1';
+  static const _huggingfaceUrl = 'https://api-inference.huggingface.co/models/gpt2';
   @override
   Future<String> askHugface(String prompt) async {
     try {
-      final responseMap = await _baseApiRepository.basePost(
+      final response = await _baseApiRepository.basePost(
         _huggingfaceUrl,
         {'inputs': prompt},
         headers: {
@@ -21,14 +21,11 @@ class HomePageRepositoryImpl implements HomePageRepository {
         },
       );
 
-      if (responseMap is List && responseMap.isNotEmpty) {
-        final generatedText = responseMap[0]['generated_text'] as String?;
-        if (generatedText != null && generatedText.isNotEmpty) {
-          return generatedText;
-        }
+      if (response is List && response.isNotEmpty && response[0]['generated_text'] != null) {
+        return response[0]['generated_text'];
       }
 
-      Log().w('Unexpected response format from HuggingFace: $responseMap');
+      Log().w('Unexpected response from HuggingFace: $response');
       return 'No valid response received.';
     } catch (e, stack) {
       Log().e('Failed to get response from HuggingFace', e, stack);

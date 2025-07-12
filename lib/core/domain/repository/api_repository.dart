@@ -102,7 +102,7 @@ class BaseApiRepository {
     int maxRetries = 3,
     int retryDelay = 1000,
   }) async {
-    final fullUrl = '${Config.baseUrl(null)}$endpoint';
+    final fullUrl = endpoint.startsWith('http') ? endpoint : '${Config.baseUrl(null)}$endpoint';
     var retryCount = 0;
 
     while (retryCount < maxRetries) {
